@@ -1,10 +1,13 @@
 package enit
 
-import "errors"
+import (
+	"errors"
+)
 
 func Memory(encodingKey string) Vault {
-	return Vault{encodingKey: encodingKey,
-		keyValues: make(map[string]string),
+	return Vault{
+		encodingKey: encodingKey,
+		keyValues:   make(map[string]string),
 	}
 }
 
@@ -14,13 +17,22 @@ type Vault struct {
 }
 
 func (v *Vault) Get(key string) (string, error) {
-	if ret, ok := v.keyValues[key]; ok {
-		return ret, nil
+	hex, ok := v.keyValues[key]
+	if !ok {
+		return "", errors.New("secret: no value for that key")
 	}
-	return "", errors.New("secret: no value for that key")
+	ret, err := Decrypt(v.encodingKey, hex)
+	if err != nil {
+		return "", err
+	}
+	return ret, nil
 }
 
 func (v *Vault) Set(key, value string) error {
-	v.keyValues[key] = value
+	encryptedValue, err := Encrypt(v.encodingKey, value)
+	if err != nil {
+		return err
+	}
+	v.keyValues[key] = encryptedValue
 	return nil
 }
