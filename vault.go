@@ -8,6 +8,8 @@ import (
 	"os"
 	"strings"
 	"sync"
+
+	"github.com/wedojava/enit/encrypt"
 )
 
 func File(encodingKey, filepath string) *Vault {
@@ -37,7 +39,7 @@ func (v *Vault) loadKeyValues() error {
 	if err != nil {
 		return err
 	}
-	decryptedJSON, err := Decrypt(v.encodingKey, sb.String())
+	decryptedJSON, err := encrypt.Decrypt(v.encodingKey, sb.String())
 	if err != nil {
 		return err
 	}
@@ -58,7 +60,7 @@ func (v *Vault) saveKeyValues() error {
 	if err != nil {
 		return err
 	}
-	encryptJSON, err := Encrypt(v.encodingKey, sb.String())
+	encryptJSON, err := encrypt.Encrypt(v.encodingKey, sb.String())
 	if err != nil {
 		return err
 	}
