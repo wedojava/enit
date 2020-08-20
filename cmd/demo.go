@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	v := enit.Memory("my-fake-key")
+	v := enit.File("my-fake-key", ".secrets")
 	err := v.Set("demo_key", "some crazy value")
 	if err != nil {
 		panic(err)
