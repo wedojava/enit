@@ -48,6 +48,8 @@ func encryptStream(key string, iv []byte) (cipher.Stream, error) {
 // EncryptWriter will return a writer that will write encrypted data to
 // the original writer.
 func EncryptWriter(key string, w io.Writer) (*cipher.StreamWriter, error) {
+	// The IV needs to be unique, but not secure. Therefore it's common to
+	// include it at the beginning of the ciphertext.
 	iv := make([]byte, aes.BlockSize)
 	if _, err := io.ReadFull(rand.Reader, iv); err != nil {
 		return nil, err
