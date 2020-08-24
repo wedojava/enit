@@ -1,7 +1,8 @@
 # Enit
 
 Encrypt it!  
-Encrypt any string in pattern of "key value", and have a key argument for encoding is blank by default, you can set it via `-k <your encoding_key>`, anyway, it encrypt [key, value] via aes.  
+Encrypt any string in pattern of "key value", and have a key argument for encoding is blank by default.  
+You can set it via `-k <your encoding_key>`, anyway, it encrypt [key, value] via aes.  
 
 # Usage
 Run `./enit` to read help, the fast begin case is below:
