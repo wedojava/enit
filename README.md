@@ -22,7 +22,7 @@ $ <yourkey> = <yourvalue>
 # Details
 The config file is located at `<your_home_dir>/.enit` by default.  
 
-More feature to be continue...  
+More features to be continue...  
 
 Enjoy it!  
 
