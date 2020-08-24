@@ -3,12 +3,13 @@
 before:
   hooks:
     # You may remove this if you don't use go modules.
-    - go mod download
+    - go mod tidy
     # you may remove this if you don't need go generate
-    - go generate ./cmd/enit.go
+    - go generate ./cmd/...
 builds:
 - env:
   - CGO_ENABLED=0
+  main: ./cmd/enit.go
   goos:
   - darwin
   - linux
