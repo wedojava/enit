@@ -12,7 +12,14 @@ var setCmd = &cobra.Command{
 	Short: "Sets a secret in your secret storage",
 	Run: func(cmd *cobra.Command, args []string) {
 		v := enit.File(encodingKey, secretPath())
-		fmt.Println(args)
+		switch len(args) {
+		case 0:
+			fmt.Println("key and value is none.")
+			return
+		case 1:
+			fmt.Println("value is none")
+			return
+		}
 		key, value := args[0], args[1]
 		err := v.Set(key, value)
 		if err != nil {
