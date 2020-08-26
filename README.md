@@ -16,33 +16,33 @@ cd enit
 go install cmd/enit.go
 ```
 ## via releases
-Download from [Releases Page](https://github.com/wedojava/enit/releases)
+Download from [Releases Page](https://github.com/wedojava/enit/releases), 
 decompress tarball and copy it to `/usr/bin`
 
 # Usage
 
-Run `./enit` to read help, the fast begin case is below:
+Run `enit` to read help, the fast begin case is below:
 ```
-$ ./enit set <yourkey> <yourvalue>
+$ enit set <yourkey> <yourvalue>
 $
-$ ./enit get <yourkey>
+$ enit get <yourkey>
 // Output:
 $ <yourkey> = <yourvalue>
 $
-$ ./enit get <yourkey>
-$ ./enit ls
+$ enit get <yourkey>
+$ enit ls
 // Output:
 $ <your storaged key-values>
 $
-$ ./enit rm <key>
+$ enit rm <key>
 // Output:
 Secret <key> remove successfully.
 ```
 Also, you can add key for encoding secret file.  
 ```
-$ ./enit set -k <encoding_key> <yourkey> <yourvalue>
+$ enit set -k <encoding_key> <yourkey> <yourvalue>
 $
-$ ./enit get -k <encoding_key> <yourkey>
+$ enit get -k <encoding_key> <yourkey>
 // Output:
 $ <yourkey> = <yourvalue>
 ```
