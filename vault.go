@@ -85,3 +85,10 @@ func (v *Vault) Set(key, value string) error {
 	err = v.save()
 	return err
 }
+
+func (v *Vault) List() (map[string]string, error) {
+	if err := v.load(); err != nil {
+		return nil, err
+	}
+	return v.keyValues, nil
+}
