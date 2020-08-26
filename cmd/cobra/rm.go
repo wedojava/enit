@@ -25,7 +25,7 @@ var rmCmd = &cobra.Command{
 			fmt.Println("Secret remove error: ", err)
 			return
 		}
-		fmt.Printf("Secret: %s remove successfully.", key)
+		fmt.Printf("Secret: %s remove successfully.\n", key)
 	},
 }
 
