@@ -82,8 +82,19 @@ func (v *Vault) Set(key, value string) error {
 		return err
 	}
 	v.keyValues[key] = value
-	err = v.save()
-	return err
+	return v.save()
+}
+
+func (v *Vault) Remove(key string) error {
+	v.mutex.Lock()
+	defer v.mutex.Unlock()
+	err := v.load()
+	if err != nil {
+		return err
+	}
+	delete(v.keyValues, key)
+	return v.save()
+
 }
 
 func (v *Vault) List() (map[string]string, error) {

@@ -21,8 +21,7 @@ var setCmd = &cobra.Command{
 			return
 		}
 		key, value := args[0], args[1]
-		err := v.Set(key, value)
-		if err != nil {
+		if err := v.Set(key, value); err != nil {
 			fmt.Println("value set error: ", err)
 			return
 		}
