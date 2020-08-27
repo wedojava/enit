@@ -47,6 +47,13 @@ $ enit get -k <encoding_key> <yourkey>
 $ <yourkey> = <yourvalue>
 ```
 
+# Trick
+```
+mkdir enit && cd enit
+mv ~/.enit ./enit_anyname && ln -s <your prepath>/enit/enit_anyname ~/.enit
+```
+so, you can backup or sync the file on any plant.
+
 # Details
 The encrypted config file is located at `$HOME/.enit`.  
 For windows user, it is located at `C:\Users\<username>\.enit`
