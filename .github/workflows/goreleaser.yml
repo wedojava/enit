@@ -1,8 +1,6 @@
 name: goreleaser
 
 on:
-  release:
-    types: [created]
   push:
     tags:
       - '*'
